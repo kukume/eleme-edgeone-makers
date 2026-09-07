@@ -1,0 +1,20 @@
+上传说明
+========
+
+你上次日志里失败点：
+  npm run build → scripts/make-zip.py 用了 f-string
+  云端 python 可能是 2.x → SyntaxError
+  构建失败 → No server-handler detected → /api 全 404
+
+现已改成：
+  npm run build  = 只编译 4 个云函数（不打 ZIP，不依赖 Python）
+  npm run pack   = 本机打包 eleme-edgeone-upload.zip
+
+请本机执行：
+  npm install
+  npm run pack
+
+然后上传：
+  eleme-edgeone-upload.zip
+
+控制台若强制 BuildScript=npm run build，现在也能通过。

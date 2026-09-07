@@ -1,0 +1,10 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.edgeone/
+dist/
+tmp/
+dist-upload/
+eleme-edgeone-upload.zip
+.claude/

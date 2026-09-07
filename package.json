@@ -1,0 +1,19 @@
+{
+  "name": "eleme-edgeone-makers",
+  "version": "1.0.4",
+  "private": true,
+  "description": "Ele.me SMS login + Ali fingerprint APIs for Tencent EdgeOne Makers Cloud Functions",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "pack": "node scripts/build.mjs --zip",
+    "fp": "node -e \"import('./src/eleme_fp.js').then(async m=>{const r=await m.generateFingerprint({}); console.log(JSON.stringify({ok:r.ok,ua:r.ua&&r.ua.slice(0,20),bxUa:r.bxUa&&r.bxUa.slice(0,20)}))})\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "esbuild": "^0.28.2",
+    "jsdom": "^24.1.3"
+  }
+}

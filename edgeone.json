@@ -1,0 +1,11 @@
+{
+  "name": "eleme-edgeone-makers",
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "nodeVersion": "20.18.0",
+  "outputDirectory": "public",
+  "cloudFunctions": {
+    "maxDuration": 120,
+    "externalNodeModules": ["jsdom"]
+  }
+}
