@@ -2,8 +2,6 @@
 
 饿了么 H5 短信登录 + 阿里指纹 API，部署到腾讯云 EdgeOne Makers Cloud Functions。
 
-> 当前不做鉴权，公网可被滥用发短信，仅建议自用。
-
 ## 接口
 
 Base 以你的域名为准，例如 `https://your-domain.example`。
@@ -47,23 +45,3 @@ curl -sS -X POST "$BASE/api/eleme/sms/login" \
 ```
 
 成功：`{ ok, cookie, userId, sid, username, st }`
-
-## 部署
-
-1. 从 GitHub Release **`latest`** 下载 `eleme-edgeone-upload.zip`  
-   （或本机执行 `npm ci && npm run pack` 生成同名 zip）
-2. 在 EdgeOne Makers / Pages 控制台上传该 zip 并部署
-3. 仓库内 `edgeone.json` 已配置：
-   - Node `20.18.0`
-   - `installCommand`: `npm install`
-   - `buildCommand`: `npm run build`
-   - `outputDirectory`: `public`
-   - Cloud Functions `maxDuration: 120`
-   - `externalNodeModules`: `["jsdom"]`
-4. 部署后验证：
-
-```bash
-export BASE=https://你的域名
-curl -sS "$BASE/api/eleme/health"
-curl -sS -X POST "$BASE/api/eleme/fp" -H "content-type: application/json" -d "{}"
-```

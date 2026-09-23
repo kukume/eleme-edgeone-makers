@@ -993,7 +993,7 @@ async function sendCode(phone, phoneCode = "86") {
   };
 }
 
-// src/routes.js
+// src/http.js
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
@@ -1019,11 +1019,6 @@ async function readJson(request) {
     throw new Error("\u8BF7\u6C42 Body \u4E0D\u662F\u5408\u6CD5 JSON");
   }
 }
-async function smsSend(request) {
-  const body = await readJson(request);
-  const session = await sendCode(body.phone, body.phoneCode || "86");
-  return ok({ session });
-}
 function wrap(handler) {
   return async (context) => {
     try {
@@ -1032,6 +1027,13 @@ function wrap(handler) {
       return fail(e, 500);
     }
   };
+}
+
+// src/routes.js
+async function smsSend(request) {
+  const body = await readJson(request);
+  const session = await sendCode(body.phone, body.phoneCode || "86");
+  return ok({ session });
 }
 
 // src/entries/sms-send.js

@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "pack": "node scripts/build.mjs --zip",
     "fp": "node -e \"import('./src/eleme_fp.js').then(async m=>{const r=await m.generateFingerprint({}); console.log(JSON.stringify({ok:r.ok,ua:r.ua&&r.ua.slice(0,20),bxUa:r.bxUa&&r.bxUa.slice(0,20)}))})\""
   },
   "engines": {

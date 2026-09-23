@@ -5,6 +5,6 @@ node_modules/
 .edgeone/
 dist/
 tmp/
-dist-upload/
-eleme-edgeone-upload.zip
 .claude/
+.agents/
+skills-lock.json
